@@ -1,12 +1,12 @@
-import React from 'react';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
-import List from './components/list/List';
+import React, { useState } from "react";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import List from "./components/list/List";
 
 const App = () => {
-  const str = "hello react"
+  const str = "hello react";
   const logo = "https://pngimg.com/uploads/tesla_logo/tesla_logo_PNG21.png";
-  let cars = [
+  let init_cars = [
     {
       model: "Model S",
       image:
@@ -31,11 +31,30 @@ const App = () => {
       id: 4,
     },
   ];
+  const [cars, setCars] = useState(init_cars);
+  // peremennaya
+  // let counter = 0;
+  // function increment() {
+  //   counter++;
+  //   console.log(counter);
+  // }
+  // function decrement() {
+  //   counter--;
+  //   console.log(counter);
+  // }
+  // useState
+  // const myHook = useState();
+  // console.log(myHook);
+  const [state, setState] = useState(0);
+  // console.log(state);
+  // ! state = ("chto to ")//tak nelzya
   return (
     <div>
-      <Header logo={logo} name={'maksat'} age={23} />
+      {/* <button onClick={() => setState(state - 1)}>-</button>
+      <span>{state}</span>
+      <button onClick={() => setState(state + 1)}>+</button> */}
+      <Header cars={cars} logo={logo} name={"maksat"} age={23} />
       <List cars={cars} />
-      {/* <div>{str}</div> */}
       <Footer />
     </div>
   );
